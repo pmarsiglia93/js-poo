@@ -4,25 +4,42 @@
 //cliente1 é uma instancia da minha classe.
 class Cliente {
     nome;
-    cpf;
+    cpf;  
+}
+
+class ContaCorrente {
     agencia;
     saldo;
-    rg;
+
+    //Método
+    sacar(valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+        }else{
+            console.log("valor insuficiente para saque!")
+        }
+    }
 }
 
 const cliente1 = new Cliente();
-const cliente2 = new Cliente();
-
 cliente1.nome = "Ricardo";
 cliente1.cpf = "111.222.333-09";
-cliente1.agencia = "1001";
-cliente1.saldo = "0";
-cliente1.rg = "123.456.789-0"
 
+const cliente2 = new Cliente();
 cliente2.nome = "Alice";
 cliente2.cpf = "888.222.333-09";
-cliente2.agencia = "1001";
-cliente2.saldo = "0";
 
+const contaCorrenteRicardo = new ContaCorrente();
+
+contaCorrenteRicardo.saldo = "0";
+contaCorrenteRicardo.agencia = "1001";
+
+console.log(contaCorrenteRicardo.saldo);
+contaCorrenteRicardo.saldo = "100";
+console.log(contaCorrenteRicardo.saldo);
+contaCorrenteRicardo.sacar(30);
+
+
+console.log(contaCorrenteRicardo.saldo);
 console.log(cliente1);
 console.log(cliente2);
